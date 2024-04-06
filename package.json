@@ -1,7 +1,7 @@
 {
   "name": "@nimpl/ab-tests",
   "version": "0.0.1",
-  "description": "Middleware logic for performing AB tests",
+  "description": "A package for conducting A/B tests on a website using middleware",
   "main": "./dist/middleware.js",
   "files": [
     "dist"
@@ -13,6 +13,7 @@
     "next",
     "next.js",
     "ab",
+    "a/b",
     "tests",
     "ab test",
     "react.js",
