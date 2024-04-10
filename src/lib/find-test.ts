@@ -1,12 +1,16 @@
-import { type NextRequest } from 'next/server';
-import { type Test } from './types/tests';
-import { rollTest } from './utils/roll-test';
-import { testRule } from './utils/test-rule';
+import { type NextRequest } from "next/server";
+import { type Test } from "./types/tests";
+import { rollTest } from "./utils/roll-test";
+import { testRule } from "./utils/test-rule";
 
-export const findTest = (tests: Test[], request: NextRequest, prevTest?: { id:string; variantIndex: number }) => {
+export const findTest = (tests: Test[], request: NextRequest, prevTest?: { id: string; variantIndex: number }) => {
     const targetPathname = request.nextUrl.pathname;
 
-    let testData: { test: Test, groups: { [key: string]: string }, isPrevTest: boolean} | null = null;
+    let testData: {
+        test: Test;
+        groups: { [key: string]: string };
+        isPrevTest: boolean;
+    } | null = null;
     for (const test of tests) {
         const isPrevTest = test.id === prevTest?.id;
         const match = targetPathname.match(`^${test.source}$`);
@@ -49,12 +53,18 @@ export const findTest = (tests: Test[], request: NextRequest, prevTest?: { id:st
         const { test, groups, isPrevTest } = testData;
         const variantIndex = prevTest && isPrevTest ? prevTest.variantIndex : rollTest(test.variants);
 
-        if (typeof variantIndex !== 'undefined') {
+        if (typeof variantIndex !== "undefined") {
             const variant = test.variants[variantIndex];
-            const formattedDestination = Object.entries(groups).reduce((acc, [key, value]) => {
-                return acc.replace(`:${key}`, value);
-            }, variant.destination);
-            return { id: test.id, variantIndex, destination: formattedDestination };
+            const formattedDestination = Object.entries(groups).reduce(
+                (acc, [key, value]) => acc.replace(`:${key}`, value),
+                variant.destination,
+            );
+
+            return {
+                id: test.id,
+                variantIndex,
+                destination: formattedDestination,
+            };
         }
     }
-}
+};

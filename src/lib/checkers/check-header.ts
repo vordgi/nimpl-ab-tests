@@ -1,5 +1,5 @@
-import { headers } from 'next/headers';
-import { type Rule } from '../types/tests';
+import { headers } from "next/headers";
+import { type Rule } from "../types/tests";
 
 export const checkHeader = (_url: URL, rule: Rule) => {
     if (!rule.value) return { match: headers().has(rule.key), groups: {} };
@@ -10,4 +10,4 @@ export const checkHeader = (_url: URL, rule: Rule) => {
     if (match) return { match: true, groups: match.groups || {} };
 
     return { match: false, groups: {} };
-}
+};

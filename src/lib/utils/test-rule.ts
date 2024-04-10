@@ -6,5 +6,5 @@ export const testRule = (url: URL, rule: Rule) => {
 
     if (tester) return tester(url, rule);
 
-    return { match: false, groups: {} }
-}
+    return { match: false, groups: {} };
+};
