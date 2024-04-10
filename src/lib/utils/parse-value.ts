@@ -4,4 +4,4 @@ export const parseValue = (value?: string) => {
     } catch {
         return undefined;
     }
-}
+};

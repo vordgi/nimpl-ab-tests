@@ -1,4 +1,4 @@
-import { type Rule } from '../types/tests';
+import { type Rule } from "../types/tests";
 
 export const checkHost = (url: URL, rule: Rule) => {
     if (!rule.value) return { match: true, groups: {} };
@@ -8,4 +8,4 @@ export const checkHost = (url: URL, rule: Rule) => {
     if (match) return { match: true, groups: match.groups || {} };
 
     return { match: false, groups: {} };
-}
+};
