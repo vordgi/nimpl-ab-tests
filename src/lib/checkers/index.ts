@@ -8,4 +8,4 @@ export const checkers = {
     cookie: checkCookie,
     host: checkHost,
     query: checkQuery,
-}
+};
