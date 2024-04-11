@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "nimpl:ab-tests": "pnpm --filter @nimpl/ab-tests",
-    "lint": "eslint \"package/**\"",
+    "lint": "eslint \"package/\"",
     "eslint": "eslint",
     "prettier": "prettier",
     "prepare": "husky"
