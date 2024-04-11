@@ -1,0 +1,44 @@
+{
+  "name": "@nimpl/ab-tests",
+  "version": "0.1.2",
+  "description": "A package for conducting A/B tests on a website using middleware",
+  "main": "./dist/middleware.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc"
+  },
+  "keywords": [
+    "next",
+    "next.js",
+    "ab",
+    "a/b",
+    "tests",
+    "ab test",
+    "react.js",
+    "middleware",
+    "edge"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/vordgi/nimpl-ab-tests.git"
+  },
+  "author": {
+    "name": "Savelyev Alexander",
+    "email": "vordgi1@gmail.com",
+    "url": "https://github.com/vordgi/"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "16.11.12",
+    "@types/react": "18.2.43",
+    "next": "^14.1.4",
+    "react": "18.2.0",
+    "typescript": "5.3.2"
+  },
+  "peerDependencies": {
+    "next": ">= 14.0.0",
+    "react": ">= 18.2.0"
+  }
+}
