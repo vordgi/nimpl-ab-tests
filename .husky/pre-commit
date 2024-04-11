@@ -1,1 +1,1 @@
-cd package && npm run lint
+pnpm run lint

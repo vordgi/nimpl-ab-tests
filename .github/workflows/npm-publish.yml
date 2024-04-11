@@ -17,10 +17,15 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Install dependencies and build
+      - name: Install pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 8
+
+      - name: Install deps and Build package
         run: |
-          npm ci
-          npm run build
+          pnpm install
+          pnpm run build
           cp ../README.md .
           cp ../LICENSE .
         working-directory: ./package
