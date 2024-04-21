@@ -25,7 +25,7 @@ export const findTest = (tests: Test[], request: NextRequest, prevTest?: { id: s
 
                 const { match, groups: ruleGroups } = testRule(request.nextUrl, rule);
 
-                if (!match) return null;
+                if (!match) break;
 
                 Object.assign(groups, ruleGroups);
             }
@@ -37,7 +37,7 @@ export const findTest = (tests: Test[], request: NextRequest, prevTest?: { id: s
 
                 const { match, groups: ruleGroups } = testRule(request.nextUrl, rule);
 
-                if (match) return null;
+                if (match) break;
 
                 Object.assign(groups, ruleGroups);
             }
@@ -64,6 +64,8 @@ export const findTest = (tests: Test[], request: NextRequest, prevTest?: { id: s
                 id: test.id,
                 variantIndex,
                 destination: formattedDestination,
+                type: variant.type,
+                status: variant.status,
             };
         }
     }
