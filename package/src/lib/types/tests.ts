@@ -10,6 +10,8 @@ export type Rule = {
 export type Variant = {
     weight: number;
     destination: string;
+    type?: "rewrite" | "redirect";
+    status?: number;
 };
 
 export type Test = {
