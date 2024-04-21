@@ -23,8 +23,13 @@ export const createMiddleware =
         const testResult = findTest(tests, request, prevTestCookie);
 
         if (testResult) {
-            const { id, variantIndex, destination } = testResult;
-            const next = NextResponse.rewrite(new URL(destination, request.url));
+            const { id, variantIndex, destination, type = "rewrite", status } = testResult;
+            let next: NextResponse<unknown>;
+            if (type === "rewrite") {
+                next = NextResponse.rewrite(new URL(destination, request.url), { status: status || 200 });
+            } else {
+                next = NextResponse.redirect(new URL(destination, request.url), { status: status || 307 });
+            }
             // We save for the session so that files are uploaded for the same variant
             next.cookies.set(COOKIE_NAME, JSON.stringify({ id, variantIndex }));
 
