@@ -2,31 +2,37 @@ import { type Test } from "./tests";
 
 export type CookieOptions = {
     /**
-     * Add httpOnly flag for ab-tests cookies
+     * Add maxAge attribute for ab-tests cookie
+     *
+     * default: `undefined` (session)
+     */
+    maxAge?: number;
+    /**
+     * Add httpOnly flag for ab-tests cookie
      *
      * default: `true`
      */
     httpOnly?: boolean;
     /**
-     * Priority attribute for ab-tests cookies
+     * Priority attribute for ab-tests cookie
      *
      * default: `medium`
      */
     priority?: "medium" | "low" | "high";
     /**
-     * Add sameSite attribute for ab-tests cookies
+     * Add sameSite attribute for ab-tests cookie
      * default: `strict`
      */
     sameSite?: boolean | "strict" | "lax" | "none";
     /**
-     * Add secure flag for ab-tests cookies
+     * Add secure flag for ab-tests cookie
      *
      * default: `true`
      */
     secure?: boolean;
-    /** Domain attribute value for ab-tests cookies */
+    /** Domain attribute value for ab-tests cookie */
     domain?: string;
-    /** path attribute value for ab-tests cookies */
+    /** path attribute value for ab-tests cookie */
     path?: string;
 };
 
@@ -47,6 +53,5 @@ export interface CookieConfiguration extends Omit<CookieOptions, "domain" | "pat
 
 export type CreateMiddlewareOptions = {
     tests: Test[];
-    cookieLifeTime?: number;
     cookieConfiguration: CookieConfiguration;
 };
