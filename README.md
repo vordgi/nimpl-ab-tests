@@ -2,7 +2,7 @@
 
 A package for conducting A/B tests on a website using middleware. The package's API is inspired by the familiar APIs from next.js.
 
-Visit https://nimpl.tech/ab-tests to view the full documentation.
+Visit https://nimpl.dev/docs/ab-tests to view the full documentation.
 
 ## Installation
 
